@@ -1,6 +1,5 @@
 import numpy as np
 from PIL import Image
-
 from i008.files import list_files
 
 
