@@ -1,3 +1,6 @@
+import numpy as np
+import pandas as pd
+
 
 def minority_balance_dataframe_by_multiple_categorical_variables(df, categorical_columns=None):
     """
@@ -20,5 +23,5 @@ def minority_balance_dataframe_by_multiple_categorical_variables(df, categorical
     return df
 
 
-
-
+df = pd.DataFrame(np.random.rand(100, 5), columns=list('abcde'))
+df['categorical'] = ['cat_{!s}'.format(np.random.randint(4)) for i in range(100)]
