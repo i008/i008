@@ -23,5 +23,9 @@ def minority_balance_dataframe_by_multiple_categorical_variables(df, categorical
     return df
 
 
-df = pd.DataFrame(np.random.rand(100, 5), columns=list('abcde'))
-df['categorical'] = ['cat_{!s}'.format(np.random.randint(4)) for i in range(100)]
+if __name__ == '__main__':
+    df = pd.DataFrame(np.random.rand(100, 5), columns=list('abcde'))
+    df['categorical'] = ['cat_{!s}'.format(np.random.randint(4)) for i in range(100)]
+    print(df.categorical.value_counts())
+    df = minority_balance_dataframe_by_multiple_categorical_variables(df, ['categorical'])
+    print(df.categorical.value_counts())

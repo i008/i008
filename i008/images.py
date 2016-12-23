@@ -37,6 +37,17 @@ def load_images_keras(images_path_list):
     )
 
 
+def load_image_keras_imagenet_compatible(image_path, gray=False, target_size=(224, 224)):
+    from keras.preprocessing import image
+    from keras.applications.vgg19 import preprocess_input
+
+    im = image.load_img(image_path, grayscale=gray, target_size=target_size)
+    imarray = image.img_to_array(im)
+    imarray = np.expand_dims(imarray, axis=0)
+    imarray = preprocess_input(imarray)
+    return imarray
+
+
 def list_images(base_path, contains=None):
     # return the set of files that are valid
     return list_files(base_path, validExts=(".jpg", ".jpeg", ".png", ".bmp"), contains=contains)

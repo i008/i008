@@ -1,2 +1,1 @@
-def test1():
-    print('oik')
+pass
