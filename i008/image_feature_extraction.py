@@ -19,6 +19,7 @@ def build_batch(paths, fixed_size):
     # return the labels and images
     return labels, images
 
+
 def prepare_image(image, fixed_size):
     # convert the image from BGR to RGB, then resize it to a fixed size,
     # ignoring aspect ratio
@@ -75,8 +76,6 @@ class ImageNetExtractor:
     def describe_from_path(self, list_of_image_pahts):
         array_of_images = np.concatenate([load_image_keras_imagenet_compatible(p) for p in list_of_image_pahts], axis=0)
         return self.describe(array_of_images)
-
-
 
 
 if __name__ == '__main__':

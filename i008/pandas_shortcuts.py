@@ -4,8 +4,6 @@ import pandas as pd
 
 def minority_balance_dataframe_by_multiple_categorical_variables(df, categorical_columns=None):
     """
-
-
     :param df: pandas.DataFrame
     :param categorical_columns: iterable of categorical columns names contained in {df}
     :return: balanced pandas.DataFrame
