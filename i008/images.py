@@ -1,5 +1,6 @@
 import numpy as np
 from PIL import Image
+
 from i008.files import list_files
 
 
@@ -37,12 +38,17 @@ def load_images_keras(images_path_list):
     )
 
 
-def load_image_keras_imagenet_compatible(image_path, gray=False, target_size=(224, 224)):
+def load_image_keras_imagenet_compatible(image_path, normalize_image=True, gray=False, target_size=(224, 224)):
     from keras.preprocessing import image
     from keras.applications.vgg19 import preprocess_input
 
     im = image.load_img(image_path, grayscale=gray, target_size=target_size)
+
     imarray = image.img_to_array(im)
+
+    if normalize_image:
+        im = im * 1 / 255
+
     imarray = np.expand_dims(imarray, axis=0)
     imarray = preprocess_input(imarray)
     return imarray
